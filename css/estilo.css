@@ -1,0 +1,441 @@
+/* Variables de colores*/
+/*Comienza Header*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: #232323; }
+
+.navbar {
+  border-bottom: solid 5px #ffd700; }
+  .navbar .navbar-brand {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Koulen', cursive;
+    color: #ffd700; }
+
+/*Finaliza Header*/
+/*Comienza el Main de Index.html*/
+#carouselExampleSlidesOnly {
+  border-bottom: solid 5px #ffd700; }
+
+/* @media screen and (min-width:1201px){ */
+.grid_container {
+  display: grid;
+  grid-template-columns: 30% 30% auto;
+  grid-template-rows: 470px 470px;
+  grid-template-areas: "container1 container1 container3" "container2 container2 container3"; }
+
+.container1 {
+  grid-area: container1;
+  align-self: center;
+  margin: 2px 5px; }
+  .container1 .box1 {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffd700;
+    background-color: #000000d5;
+    padding: 10px;
+    gap: 2rem;
+    border-radius: 10px;
+    transform: 1s; }
+    .container1 .box1 #foto {
+      width: 300px;
+      height: 400px;
+      border: inset 2px #ffd700;
+      border-radius: 5px; }
+    .container1 .box1 .texto_box1 {
+      width: 400px; }
+      .container1 .box1 .texto_box1 h3 {
+        font-family: "Koulen", cursive;
+        width: 400px;
+        font-size: 60px;
+        margin: 0%; }
+  .container1 .box1:hover {
+    box-shadow: 2px 2px 20px #ffd700; }
+
+.container2 {
+  grid-area: container2;
+  align-self: center;
+  margin: 2px 5px; }
+  .container2 .box2 {
+    margin: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000000d5;
+    color: #ffd700;
+    padding: 10px;
+    gap: 2rem;
+    border-radius: 10px;
+    transform: 1s; }
+    .container2 .box2 #foto2 {
+      width: 300px;
+      height: 400px;
+      border: solid 2px #ffd700;
+      border-radius: 5px; }
+    .container2 .box2 .texto_box2 {
+      width: 400px; }
+      .container2 .box2 .texto_box2 h3 {
+        font-family: "Koulen", cursive;
+        width: 400px;
+        font-size: 60px;
+        margin: 0%; }
+  .container2 .box2:hover {
+    box-shadow: 2px 2px 20px #ffd700; }
+
+.container3 {
+  grid-area: container3;
+  align-self: center; }
+  .container3 .box3 {
+    margin: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000000d5;
+    color: #ffd700;
+    padding: 10px;
+    gap: 2rem;
+    border-radius: 10px;
+    transform: 1s; }
+    .container3 .box3 #foto3 {
+      width: 400px;
+      height: 500px;
+      border: solid 2px #ffd700;
+      border-radius: 5px; }
+    .container3 .box3 .texto_box3 {
+      width: 400px; }
+      .container3 .box3 .texto_box3 h3 {
+        font-family: "Koulen", cursive;
+        width: 400px;
+        font-size: 60px;
+        margin: 0%; }
+  .container3 .box3:hover {
+    box-shadow: 2px 2px 20px #ffd700; }
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .grid_container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 450px 450px 450px;
+    grid-template-areas: "container1" "container2" "container3"; }
+    .grid_container .container1 {
+      grid-area: container1;
+      align-self: center;
+      margin: 0; }
+      .grid_container .container1 .box1 #foto {
+        width: 300px;
+        height: 350px;
+        border: inset 2px #ffd700;
+        border-radius: 5px; }
+      .grid_container .container1 .box1 .texto_box1 {
+        width: 300px; }
+        .grid_container .container1 .box1 .texto_box1 h3 {
+          font-family: "Koulen", cursive;
+          width: 300px;
+          font-size: 50px;
+          margin: 0%; }
+      .grid_container .container1 .box1:hover {
+        box-shadow: 2px 2px 20px #ffd700; }
+    .grid_container .container2 {
+      grid-area: container2;
+      align-self: space-between;
+      margin: 0; }
+      .grid_container .container2 .box2 #foto2 {
+        width: 300px;
+        height: 350px;
+        border: inset 2px #ffd700;
+        border-radius: 5px; }
+      .grid_container .container2 .box2 .texto_box2 {
+        width: 300px; }
+        .grid_container .container2 .box2 .texto_box2 h3 {
+          font-family: "Koulen", cursive;
+          width: 300px;
+          font-size: 50px;
+          margin: 0%; }
+      .grid_container .container2 .box2:hover {
+        box-shadow: 2px 2px 20px #ffd700; }
+    .grid_container .container3 {
+      grid-area: container3;
+      align-self: center;
+      margin: 0; }
+      .grid_container .container3 .box3 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; }
+        .grid_container .container3 .box3 #foto3 {
+          width: 300px;
+          height: 350px;
+          border: inset 2px #ffd700;
+          border-radius: 5px; }
+        .grid_container .container3 .box3 .texto_box3 {
+          width: 300px; }
+          .grid_container .container3 .box3 .texto_box3 h3 {
+            font-family: "Koulen", cursive;
+            width: 300px;
+            font-size: 50px;
+            margin: 0%; }
+      .grid_container .container3 .box3:hover {
+        box-shadow: 2px 2px 20px #ffd700; } }
+
+@media only screen and (max-width: 767px) {
+  .grid_container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 355px 355px 355px;
+    grid-template-areas: "container1" "container2" "container3"; }
+    .grid_container .container1 {
+      grid-area: container1;
+      align-self: center;
+      margin: 0; }
+      .grid_container .container1 .box1 {
+        margin-top: 2px;
+        background-image: url(../img/foto11.png);
+        background-size: cover;
+        height: 350px; }
+        .grid_container .container1 .box1 #foto {
+          display: none; }
+        .grid_container .container1 .box1 .texto_box1 {
+          width: 350px;
+          background-color: rgba(0, 0, 0, 0.529); }
+          .grid_container .container1 .box1 .texto_box1 h3 {
+            font-family: "Koulen", cursive;
+            width: 100%;
+            font-size: 40px;
+            margin: 0%; }
+      .grid_container .container1 .box1:hover {
+        box-shadow: 2px 2px 20px #ffd700; }
+    .grid_container .container2 {
+      grid-area: container2;
+      align-self: center;
+      margin: 0; }
+      .grid_container .container2 .box2 {
+        margin-top: 2px;
+        background-image: url(../img/foto22.png);
+        background-size: cover;
+        height: 350px; }
+        .grid_container .container2 .box2 #foto2 {
+          display: none; }
+        .grid_container .container2 .box2 .texto_box2 {
+          width: 350px;
+          background-color: rgba(0, 0, 0, 0.529); }
+          .grid_container .container2 .box2 .texto_box2 h3 {
+            font-family: "Koulen", cursive;
+            width: 100%;
+            font-size: 40px;
+            margin: 0%; }
+      .grid_container .container2 .box2:hover {
+        box-shadow: 2px 2px 20px #ffd700; }
+    .grid_container .container3 {
+      grid-area: container3;
+      align-self: center;
+      margin: 0; }
+      .grid_container .container3 .box3 {
+        margin-top: 2px;
+        background-image: url(../img/foto3.jpeg);
+        background-size: cover;
+        height: 350px; }
+        .grid_container .container3 .box3 #foto3 {
+          display: none; }
+        .grid_container .container3 .box3 .texto_box3 {
+          width: 350px;
+          background-color: rgba(0, 0, 0, 0.529); }
+          .grid_container .container3 .box3 .texto_box3 h3 {
+            font-family: "Koulen", cursive;
+            width: 300px;
+            font-size: 40px;
+            margin: 0%; }
+      .grid_container .container3 .box3:hover {
+        box-shadow: 2px 2px 20px #ffd700; } }
+
+/*Comienza el Main de Educacion*/
+.intro-edu {
+  color: #ffd700;
+  /* text-align: center; */
+  margin: 2rem auto; }
+  .intro-edu h2 {
+    font-size: 3rem;
+    font-family: "Koulen", cursive; }
+  .intro-edu p {
+    font-size: 1.3rem; }
+
+.card {
+  background-color: #000000d5;
+  color: #ffd700;
+  margin: 1rem 3rem;
+  border: solid 5px #ffd700; }
+  .card h2 {
+    font-size: 2rem;
+    font-family: "Koulen", cursive; }
+  .card p {
+    font-size: 1.3rem; }
+  .card a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: #ffd700;
+    color: #232323;
+    border-radius: 5%;
+    transition: 1s; }
+  .card a:hover {
+    background-color: black;
+    color: #ffd700;
+    border: solid 2px #ffd700; }
+
+/*Finaliza el Main de Educacion*/
+/*Comienza el Main de Tienda*/
+.introTienda {
+  color: #ffd700; }
+  .introTienda .tituloTienda {
+    font-family: "Koulen", cursive;
+    font-size: 3rem;
+    color: #ffd700; }
+  .introTienda .textoTienda {
+    color: #ffd700;
+    font-size: 1.3rem; }
+
+.container .row .lead h3 {
+  font-family: "Koulen", cursive;
+  font-size: 2.5rem;
+  color: #ffd700; }
+
+.container .row .card {
+  transition: 1s; }
+  .container .row .card img {
+    margin-top: 5px;
+    height: 250px; }
+  .container .row .card .text-card-body {
+    height: 200px; }
+  .container .row .card .card-body .botonTienda {
+    width: 10px;
+    transition: 1ms; }
+  .container .row .card .card-body .botonTienda:hover {
+    background-color: black;
+    color: #ffd700;
+    border: solid 2px #ffd700; }
+
+.container .row .card:hover {
+  box-shadow: 2px 2px 20px #ffd700; }
+
+/*Finaliza el Main de Tienda*/
+/*Comienza el Main de Nosotros*/
+.container {
+  margin: 0 auto; }
+  .container .row .titulo_equipo {
+    color: #ffd700;
+    font-size: 3rem;
+    font-family: "Koulen", cursive; }
+  .container .row .card .card-body {
+    font-size: 1.3rem; }
+
+.accordion .accordion-item .accordion-header {
+  background-color: #ffd700; }
+  .accordion .accordion-item .accordion-header .accordion-button {
+    border: solid 2px #ffd700;
+    font-size: 1.5rem; }
+
+.accordion .accordion-item .accordion-collapse .accordion-body {
+  font-size: 1.2rem; }
+
+/*Finaliza el Main Nosotros*/
+/*Comienza el Main Contacto*/
+.container_flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .container_flex h2 {
+    font-family: "Koulen", cursive;
+    color: #ffd700;
+    font-size: 3rem; }
+  .container_flex p {
+    font-size: 1.3rem;
+    color: #ffd700;
+    text-align: center; }
+
+form h2 {
+  font-family: "Koulen", cursive;
+  color: #ffd700;
+  font-size: 2rem; }
+
+/*finaliza el Main Contacto*/
+/*Comienza Error 404*/
+.error404 {
+  width: 100%;
+  height: 85vh;
+  color: #ffd700;
+  font-family: "Koulen", cursive;
+  text-shadow: 5px 5px 5px black;
+  display: flex;
+  align-items: center; }
+  .error404 img {
+    margin: 1rem;
+    border: solid 2px #ffd700;
+    box-shadow: 5px 5px 5px gold; }
+  .error404 div {
+    margin: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .error404 div h2 {
+      font-size: 3rem; }
+    .error404 div h3 {
+      font-size: 2rem;
+      margin: 5px; }
+    .error404 div a {
+      text-decoration: none;
+      color: #ffd700;
+      font-size: 20px;
+      background-color: black;
+      border: solid 3px #ffd700;
+      padding: 10px;
+      margin-top: 20px;
+      transition: 1ms; }
+    .error404 div a:hover {
+      background-color: #ffd700;
+      color: black; }
+
+/*Comienza Footer*/
+.footer {
+  border-top: solid 5px #ffd700;
+  color: #ffd700; }
+  .footer .titulo_redes, .footer .container_redes .redes a {
+    text-align: center; }
+  .footer .container_redes {
+    display: flex;
+    justify-content: space-between; }
+    .footer .container_redes .redes a {
+      text-decoration: none;
+      color: #ffd700;
+      display: block; }
+    .footer .container_redes .redes img {
+      width: 4rem;
+      height: 4rem;
+      margin-left: 1rem;
+      padding: 5px;
+      border-radius: 40%; }
+
+@media only screen and (max-width: 767px) {
+  .footer {
+    height: 100px; }
+    .footer .titulo_redes, .footer .container_redes .redes a {
+      display: none; }
+    .footer .container_redes .redes a {
+      text-decoration: none;
+      text-align: center;
+      color: #ffd700;
+      display: block; }
+    .footer .container_redes .redes img {
+      height: 2.5rem;
+      width: 2.5rem;
+      padding: 5px;
+      border-radius: 40%; } }
