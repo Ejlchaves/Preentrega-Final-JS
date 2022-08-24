@@ -23,6 +23,7 @@
      <link rel="icon" href="../img/Musicart.ico">
      <!--CSS-->
     <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>MusicArt - Encontra tu Instrumento!</title>
 </head>
 <body>
@@ -56,123 +57,41 @@
                     </ul>
                   </div>
                 </div>
+                <button class="botonCarrito bg-dark"><img id="carrito" src="../img/carrito.png" alt="carrito"></button>
               </nav>
         </header>
 
-        <main>
+        <main id="main">
           <div class="introTienda p-1 m-5">
             <h2 class="tituloTienda">¡Tienda Online de Instrumentos!</h2>
             <p class="textoTienda lead">¡En este apartado podrás encontrar los instrumentos nuevos y usados que tenemos disponibles para venta, te recomendamos leer la descripción y por cualquier consulta contactarte!</p>
           </div>
           <section class="container">
-            <div class="row">
+            <div id="containerProducto" class="row">
                 <div class="lead col-12">
                     <h3>Instrumentos</h3>
                 </div>
-                    <div class="card col-sm-12 col-md-6 col-lg-4 m-2" style="width: 18rem;">
-                        <img src="../img/tienda1.jpg" class="card-img-top" alt="Guitarra">
-                        <div class="card-body text-card-body">
-                          <h5 class="card-title">Guitarra Electrica</h5>
-                          <p class="card-text lead">Guitarra electrica fender stratocaster, color negro incluye púas y estuche.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Modelo: Fender x33</li>
-                          <li class="list-group-item">Condición: Nuevo</li>
-                          <li class="list-group-item">Precio: $24.000</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="./contacto.html" class="card-link botonTienda p-1">Consultar</a>
-                          <a href="#" class="card-link botonTienda botonComprar p-1 m-0">Comprar</a>
-                        </div>
-                    </div>
-    
-                    <div class="card col-sm-12 col-md-6 col-lg-4 m-2" style="width: 18rem;">
-                        <img src="../img/tienda2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-card-body">
-                          <h5 class="card-title">Ukelele</h5>
-                          <p class="card-text lead">Ukelele soprano acustico y satinado, incluye estuche. Ideal para principiantes </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Modelo: KOALA V5</li>
-                            <li class="list-group-item">Condición: Nuevo</li>
-                            <li class="list-group-item">Precio: $4.500</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="./contacto.html" class="card-link botonTienda p-1">Consultar</a>
-                          <a href="#" class="card-link botonTienda botonComprar p-1 m-0">Comprar</a>
-                        </div>
-                    </div>
-    
-                    <div class="card col-sm-12 col-md-6 col-lg-4 m-2" style="width: 18rem;">
-                        <img src="../img/tienda3.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-card-body">
-                          <h5 class="card-title">Maraca</h5>
-                          <p class="card-text lead"> Maracas Artesanales Bolivianas, confeccionadas en madera de jacaranda.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Modelo: TumTum 2</li>
-                            <li class="list-group-item">Condición: Usado</li>
-                            <li class="list-group-item">Precio: $2.000</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="./contacto.html" class="card-link botonTienda p-1">Consultar</a>
-                          <a href="#" class="card-link botonTienda botonComprar p-1 m-0">Comprar</a>
-                        </div>
-                    </div>
-    
-                    <div class="card col-sm-12 col-md-6 col-lg-4 m-2" style="width: 18rem;">
-                        <img src="../img/tienda5.jpg" class="card-img-top" alt="Organo Yamaha">
-                        <div class="card-body text-card-body">
-                          <h5 class="card-title">Organo Yamaha</h5>
-                          <p class="card-text lead">Organo Profesional con sensibilidad en teclas. Atril y estuche incluidos.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Modelo: Yamaha</li>
-                            <li class="list-group-item">Condición: Nuevo</li>
-                            <li class="list-group-item">Precio:$33.000</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="./contacto.html" class="card-link botonTienda p-1">Consultar</a>
-                          <a href="#" class="card-link botonTienda botonComprar p-1 m-0">Comprar</a>
-                        </div>
-                    </div>
-    
-                    <div class="card col-sm-12 col-md-6 col-lg-4 m-2" style="width: 18rem;">
-                        <img src="../img/tienda6.jpg" class="card-img-top" alt="Bateria">
-                        <div class="card-body text-card-body">
-                          <h5 class="card-title">Bateria VOX</h5>
-                          <p class="card-text lead">Bateria VOX de 4 cuerpos para jazz/blues realizada en materiales de calidad</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Modelo: VOX XRP</li>
-                            <li class="list-group-item">Condición: Usado</li>
-                            <li class="list-group-item">Precio: $27.000</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="./contacto.html" class="card-link botonTienda p-1">Consultar</a>
-                          <a href="#" class="card-link botonTienda botonComprar p-1 m-0">Comprar</a>
-                        </div>
-                    </div>
-    
-                    <div class="card col-sm-12 col-md-6 col-lg-4 m-2" style="width: 18rem;">
-                        <img src="../img/tienda7.jpg" class="card-img-top" alt="Trombon">
-                        <div class="card-body text-card-body">
-                          <h5 class="card-title">Tuba Parquer</h5>
-                          <p class="card-text lead">Tuba profesional con 3 valvulas y detalles en bronce, incluye estuche y correa. </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Modelo: Parquer BTC 20</li>
-                            <li class="list-group-item">Condición: Nuevo</li>
-                            <li class="list-group-item">Precio: $250.000</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="./contacto.html" class="card-link botonTienda p-1">Consultar</a>
-                          <a href="#" class="card-link botonTienda botonComprar p-1 m-0">Comprar</a>
-                        </div>
-                    </div>
+                    <!--Renderizado de productos-->
             </div>
           </section>
-       
+          <section>
+            <h2 class="introTienda">Carrito de Compras(<span id="cantidadInstrumentosCarrito">0</span>)</h2>
+            <div id="sectionCarrito">
+              <!--Renderizado de productos en carrito-->
+            </div>
+
+            
+          </section>
+          <Section class="carritoFinal">
+            <hr>
+            <div class="totalCarrito">Total a Pagar: <span id="importePagar">0</span></div>
+            <div class="botonesCarrito">
+              <button class="botonPagar">PAGAR</button>
+              <button id="botonVaciar" class="botonPagar">Vaciar Carrito</button>
+            </div>
+            <hr>
+          </Section>
+          
         </main>
         <footer class="bg-dark p-3 footer">
             <h4 class="titulo_redes">Seguinos en las Redes Sociales!</h4>
@@ -199,5 +118,10 @@
         </footer>
             <!-- JavaScript Bundle with Popper -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+            <script src="../js/data.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+            <script src="../js/script.js"></script>
     </body>
 </html>

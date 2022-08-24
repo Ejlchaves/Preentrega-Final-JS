@@ -1,81 +1,174 @@
-// Creacion de Objetos
 
-class Instrumentos {
-    constructor (tipo, marca, precio, condicion) {
-        this.tipo = tipo;
-        this.marca = marca;
-        this.precio = precio;
-        this.condicion = condicion;
-    }
-}
+//Array de instrumentos/productos
 
-const instrumento1 = new Instrumentos ("Guitarra Electrica", "Fender", 24000, "Nuevo")
-const instrumento2 = new Instrumentos ("Ukelele", "KOALA", 4500, "Nuevo")
-const instrumento3 = new Instrumentos ("Maracas", "TumTum", 2000, "Usado")
-const instrumento4 = new Instrumentos ("Organo", "Yamaha", 33000, "Nuevo")
-const instrumento5 = new Instrumentos ("Bateria", "VOX", 27000, "Usado")
-const instrumento6 = new Instrumentos ("Tuba", "Parquer", 250000, "Nuevo")
+let stockInstrumentos = [instrumento1, instrumento2, instrumento3, instrumento4, instrumento5, instrumento6]
 
 //Creacion del Array de carrito
-
 let carritoCompra = []
 
-//Solicitud de acceso al bucle
 
-const eleccionDeInstrumentos = () => {
-    let cliente = prompt("Desea comenzar a comprar en la tienda? SI/NO").toLowerCase()
+//Selectores
+//----------
+const containerProducto = document.querySelector('#containerProducto')
+const sectionCarrito = document.querySelector('#sectionCarrito')
+const botonCarrito = document.querySelector('#botonCarrito')
+const botonPagar = document.querySelector('#botonPagar')
+const botonVaciar = document.querySelector('#botonVaciar')
+const cantidadInstrumentosCarrito = document.querySelector('#cantidadInstrumentosCarrito')
+const importeAPagar = document.querySelector('#importePagar')
+//Storage/JSON
+//----------
+
+carritoCompra = JSON.parse(localStorage.getItem('carritoCompra')) || []
 
 
-while (cliente == "si") {
-    let productoElegido = prompt("Por favor, elija el instrumento que desea agregar al carrito: Guitarra Electrica, Ukelele, Maracas, Organo, Bateria, Tuba").toLowerCase()
+//Renderizado de productos
+//------------------------
+const renderizarProductos = () => {
+    stockInstrumentos.forEach((instrumento) => {
+        const cardInstrumento = document.createElement('div')
+        cardInstrumento.classList.add('card', 'producto', 'col-sm-12', 'col-md-6', 'col-lg-4', 'm-2', 'style="width:18rem;')
+        cardInstrumento.setAttribute('data-id', instrumento.id)
+        cardInstrumento.innerHTML = `
+        <img src="${instrumento.img}" class="card-img-top" alt="${instrumento.tipo}">
+        <div class="card-body text-card-body">
+          <h5 class="card-title">${instrumento.tipo}</h5>
+          <p class="card-text lead">${instrumento.detalle}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Modelo: ${instrumento.marca}</li>
+          <li class="list-group-item">Condición: ${instrumento.condicion}</li>
+          <li class="list-group-item">Precio: $${instrumento.precio}</li>
+        </ul>
+        <div class="card-body">
+          <button href="./contacto.html" class="card-link botonTienda p-1">Consultar</button>
+          <button  class="card-link botonTienda agregarACarrito p-1 m-0" data-id="${instrumento.id}">Agregar a Carrito</button>
+        </div>
+        `
+        containerProducto.append(cardInstrumento)
+    })
+    document.querySelectorAll('.agregarACarrito').forEach((button) => {
+        button.addEventListener('click', agregarInstrumentoACarrito)
+        
+    })
+}
 
-    switch(productoElegido) {
-        case 'guitarra electrica':
-            alert("Seleccionaste Guitarra Electrica")
-            carritoCompra.push(instrumento1)
-            console.log(("Seleccionaste Guitarra Electrica"))
-            break;
-        case 'ukelele':
-            alert("Seleccionaste Ukelele")
-            carritoCompra.push(instrumento2)
-            console.log(("Seleccionaste Ukelele"))
-            break;
-        case 'maracas':
-            alert("Seleccionaste Maracas")
-            carritoCompra.push(instrumento3)
-            console.log(("Seleccionaste Maracas"))
-            break;
-        case 'organo':
-            alert("Seleccionaste Organo Yamaha")
-            carritoCompra.push(instrumento4)
-            console.log(("Seleccionaste Organo Yamaha"))
-            break;
-        case 'bateria':
-            alert("Seleccionaste Bateria")
-            carritoCompra.push(instrumento5)
-            console.log(("Seleccionaste Bateria"))
-            break;
-        case 'tuba':
-            alert("Seleccionaste Tuba")
-            carritoCompra.push(instrumento6)
-            console.log(("Seleccionaste Tuba"))
-            break;
-        default:
-            alert("El instrumento ingresado no esta disponible")
+const agregarInstrumentoACarrito = (prodId) => {
+    const productoIdElegido = prodId.target.getAttribute("data-id")
+    const productoElegido = stockInstrumentos.find((instrumento) => instrumento.id == productoIdElegido)
+    carritoCompra.push(productoElegido)
+    Toastify({
+      text: "Agregas un producto al carrito",
+      duration: 3000,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #ffd700, #232323)",
+      }/* ,
+      onClick: function(){} */ // Callback after click
+    }).showToast();
+    renderizarCarrito()
+    
+    console.log(carritoCompra)
+    
+}
+
+
+
+const renderizarCarrito = () => {
+    const carritoContainer = document.querySelector('#sectionCarrito')
+    carritoContainer.innerHTML=''
+
+    carritoCompra.forEach((instrumento) => {
+    
+      const productoContainer = document.createElement ('div')
+        
+        productoContainer.classList = ('productoEnCarrito', 'datosCarrito')
+        productoContainer.setAttribute('data-id', instrumento.id)
+        productoContainer.innerHTML = `
+        <div class="datosCarrito">
+        <p>ID: ${instrumento.id}</p>
+        <p>Producto: ${instrumento.tipo} ${instrumento.marca}</p>
+        <p>Cantidad: <span id="cantidad">${instrumento.cantidad}</span></p>
+        <p>Precio: $${instrumento.precio}</p>
+        <button onclick = "eliminarInstrumentoDeCarrito (${instrumento.id})" class="botonEliminar" data-id="${instrumento.id}">Eliminar</button>
+        </div>
+        `
+        carritoContainer.append(productoContainer)
+        localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra))
+        
+    })
+    cantidadInstrumentosCarrito.innerText = carritoCompra.length
+    importeAPagar.innerText = carritoCompra.reduce((acc, instrumento) => acc + instrumento.precio, 0)
+
+}
+
+  
+
+const eliminarInstrumentoDeCarrito = (instrumentoId) => {
+  const productoElegido = carritoCompra.find((instrumento) => instrumento.id == instrumentoId)
+  const indice = carritoCompra.indexOf(productoElegido)
+  carritoCompra.splice(indice, 1)
+  Toastify({
+    text: "Eliminaste un producto del carrito",
+    duration: 3000,
+    destination: "https://github.com/apvarun/toastify-js",
+    newWindow: true,
+    close: true,
+    gravity: "bottom", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #ffd700, #232323)",
+    }/* ,
+    onClick: function(){} */ // Callback after click
+  }).showToast();
+  console.log(carritoCompra)
+  renderizarCarrito()
+}
+
+botonVaciar.addEventListener('click', () => {
+  Swal.fire({
+    title: 'Esta seguro de vaciar su carrito?',
+    text: "Todos los productos se eliminaran!",
+    icon: 'warning',
+    showCancelButton: true,
+    background: '#232323',
+    color: '#fff',
+    confirmButtonColor: '#ffd700',
+    cancelButtonColor: '#000',
+    confirmButtonText: 'Si, vaciar carrito!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      carritoCompra.length = 0;
+      renderizarCarrito()
+      Swal.fire({
+        title: 'Carrito vacio!',
+        text: 'Eliminaste todos los productos de tu carrito',
+        icon: 'success',
+        background: '#232323',
+        color: '#fff',
+        confirmButtonColor: '#ffd700'
+      })
     }
+  })
+})
 
-
-    cliente = prompt("Desea continuar comprando en la tienda? SI/NO").toLowerCase()
-}
-
-
-}
 
 //Ejecucion de la funcion
+renderizarProductos()
 
-eleccionDeInstrumentos()
 
-const total = carritoCompra.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
 
-alert("El valor total de tu compra es de $" + total);
-console.log("El valor total de tu compra es de $" + total);
+const mostrarTotal = () => {
+        const total = 0
+        total = carritoCompra.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
+        alert(`El total de tu compra es de ${total}`)
+    
+}
+
+
