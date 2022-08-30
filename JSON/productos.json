@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "tipo": "Guitarra Electrica",
+        "marca": "Fender x33",
+        "cantidad": 1,
+        "precio": 24000,
+        "condicion": "Nuevo",
+        "img": "../img/tienda1.jpg",
+        "detalle": "Guitarra electrica fender stratocaster, color negro incluye púas y estuche."
+    },
+    {
+        "id": 2,
+        "tipo": "Ukelele",
+        "marca": "KOALA V5",
+        "cantidad": 1,
+        "precio": 4500,
+        "condicion": "Nuevo",
+        "img": "../img/tienda2.jpg",
+        "detalle": "Ukelele soprano acustico y satinado, incluye estuche. Ideal para principiantes "
+    },
+    {
+        "id": 3,
+        "tipo": "Maracas",
+        "marca": "TumTum 2",
+        "cantidad": 1,
+        "precio": 2000,
+        "condicion": "Usado",
+        "img": "../img/tienda3.jpg",
+        "detalle": "Maracas Artesanales Bolivianas, confeccionadas en madera de jacaranda."
+    },
+    {
+        "id": 4,
+        "tipo": "Organo",
+        "marca": "Yamaha",
+        "cantidad": 1,
+        "precio": 33000,
+        "condicion": "Nuevo",
+        "img": "../img/tienda5.jpg",
+        "detalle": "Organo Profesional con sensibilidad en teclas. Atril y estuche incluidos."
+    },
+    {
+        "id": 5,
+        "tipo": "Bateria",
+        "marca": "VOX XRP",
+        "cantidad": 1,
+        "precio": 27000,
+        "condicion": "Usado",
+        "img": "../img/tienda6.jpg",
+        "detalle": "Bateria VOX de 4 cuerpos para jazz/blues realizada en materiales de calidad"
+    },
+    {
+        "id": 6,
+        "tipo": "Tuba",
+        "marca": "Parquer BTC 20",
+        "cantidad": 1,
+        "precio": 250000,
+        "condicion": "Nuevo",
+        "img": "../img/tienda7.jpg",
+        "detalle": "Tuba profesional con 3 valvulas y detalles en bronce, incluye estuche y correa."
+    }
+]
