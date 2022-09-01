@@ -1,9 +1,11 @@
 
 //Array de instrumentos/productos
+//-------------------------------
 
 let stockInstrumentos = []
 
 //Creacion del Array de carrito
+//-----------------------------
 let carritoCompra = []
 
 
@@ -11,22 +13,27 @@ let carritoCompra = []
 //----------
 const containerProducto = document.querySelector('#containerProducto')
 const sectionCarrito = document.querySelector('#sectionCarrito')
-const botonCarrito = document.querySelector('#botonCarrito')
+const botonCarrito = document.querySelector('.botonCarrito')
 const botonPagar = document.querySelector('#botonFinalizar')
 const botonVaciar = document.querySelector('#botonVaciar')
 const cantidadInstrumentosCarrito = document.querySelector('#cantidadInstrumentosCarrito')
 const importeAPagar = document.querySelector('#importePagar')
+const botonBuscar = document.querySelector('#btnSearch')
+let searchBar = document.querySelector('#searchBar')
 
 //Storage/JSON
-//----------
+//------------
 
 carritoCompra = JSON.parse(localStorage.getItem('carritoCompra')) || []
 
 
 //Funciones
 //------------------------
-const renderizarProductos = () => {
-    stockInstrumentos.forEach((instrumento) => {
+
+//Renderizado de Productos
+const renderizarProductos = (array) => {
+    containerProducto.innerHTML = ''
+    array.forEach((instrumento) => {
         const cardInstrumento = document.createElement('div')
         cardInstrumento.classList.add('card', 'producto', 'col-sm-12', 'col-md-6', 'col-lg-4', 'm-2', 'style="width:18rem;')
         cardInstrumento.setAttribute('data-id', instrumento.id)
@@ -42,7 +49,7 @@ const renderizarProductos = () => {
           <li class="list-group-item">Precio: $${instrumento.precio}</li>
         </ul>
         <div class="card-body">
-          <button href="./contacto.html" class="card-link botonTienda p-1">Consultar</button>
+          <button  class="card-link botonTienda p-1"><a href="./contacto.html">Consultar</a></button>
           <button  class="card-link botonTienda agregarACarrito p-1 m-0" data-id="${instrumento.id}">Agregar a Carrito</button>
         </div>
         `
@@ -54,27 +61,35 @@ const renderizarProductos = () => {
     })
 }
 
+//Agregar instrumentos al Carrito
 const agregarInstrumentoACarrito = (prodId) => {
       const productoIdElegido = prodId.target.getAttribute("data-id")
-      const cantidadNueva = carritoCompra.some(prod => prod.id == productoIdElegido)
-      const productoElegido = stockInstrumentos.find((instrumento) => instrumento.id == productoIdElegido)
+      const cantidadNueva = carritoCompra.some((prod) => prod.id == productoIdElegido)
+        if(cantidadNueva) {
+          const cantidadFinal = carritoCompra.map((prod) => {
+            if(prod.id == productoIdElegido) {
+              prod.cantidad++
+            }
+        })
+      } else {
+          const productoElegido = stockInstrumentos.find((instrumento) => instrumento.id == productoIdElegido)
+          carritoCompra.push(productoElegido)
+      }
       Toastify({
-          text: "Agregas un producto al carrito",
-          duration: 3000,
-          close: true,
-          gravity: "top", // `top` or `bottom`
-          position: "right", // `left`, `center` or `right`
-          stopOnFocus: true, // Prevents dismissing of toast on hover
-          style: {
-            background: "linear-gradient(to right, #232323, #04f404)",
-          }
-        }).showToast();
-        carritoCompra.push(productoElegido)
+        text: "Agregas un producto al carrito",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #232323, #04f404)",
+        }
+      }).showToast();
       renderizarCarrito()
 }
 
-
-
+//Renderizar el Carrito de Compras
 const renderizarCarrito = () => {
     const carritoContainer = document.querySelector('#sectionCarrito')
     carritoContainer.innerHTML=''
@@ -84,26 +99,29 @@ const renderizarCarrito = () => {
             productoContainer.setAttribute('data-id', instrumento.id)
             productoContainer.innerHTML = `
             <div class="datosCarrito">
-            <p>ID: ${instrumento.id}</p>
             <p>Producto: ${instrumento.tipo} ${instrumento.marca}</p>
+            <img src="${instrumento.img}" class="imgCarrito" alt="${instrumento.tipo}">
+            <p>ID: ${instrumento.id}</p>
             <p>Cantidad: <span id="cantidad">${instrumento.cantidad}</span></p>
+            <button onclick = "eliminarInstrumentoDeCarrito (${instrumento.id})" class="botonEliminar" data-id="${instrumento.id}"><img src="../img/iconoEliminar.png" class="iconoBorrar" alt=""></button>
             <p>Precio: $${instrumento.precio}</p>
-            <button onclick = "eliminarInstrumentoDeCarrito (${instrumento.id})" class="botonEliminar" data-id="${instrumento.id}">Eliminar</button>
             </div>
             `
         carritoContainer.append(productoContainer) 
     })
     cantidadInstrumentosCarrito.innerText = carritoCompra.length
-    importeAPagar.innerText = carritoCompra.reduce((acc, instrumento) => acc + instrumento.precio, 0)
+    importeAPagar.innerText = carritoCompra.reduce((acc, instrumento) => acc + (instrumento.precio * instrumento.cantidad), 0)
     localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra))
 }
 
-  
-
+//Eliminar Instrumentos del Carrito
 const eliminarInstrumentoDeCarrito = (instrumentoId) => {
   const productoElegido = carritoCompra.find((instrumento) => instrumento.id == instrumentoId)
   const indice = carritoCompra.indexOf(productoElegido)
-  carritoCompra.splice(indice, 1)
+  if(productoElegido.cantidad >= 1) {
+      productoElegido.cantidad = 1
+      carritoCompra.splice(indice, 1)
+} 
   Toastify({
     text: "Eliminaste un producto del carrito",
     duration: 3000,
@@ -115,11 +133,18 @@ const eliminarInstrumentoDeCarrito = (instrumentoId) => {
       background: "linear-gradient(to right, #232323, #ff0000)",
     }
   }).showToast();
-  console.log(carritoCompra)
   renderizarCarrito()
 }
 
-botonVaciar.addEventListener('click', () => {
+//Busqueda para Searchbar
+const busquedaProducto = () => {
+  const productoBuscado = searchBar.value.toLowerCase()
+  const busquedaRealizada = stockInstrumentos.filter((productos) => productos.tipo.toLowerCase().includes(productoBuscado))
+  renderizarProductos(busquedaRealizada);
+}
+
+//Vaciar Carrito de compra
+const vaciarCarrito = () => {
   if(carritoCompra.length === 0){
     Swal.fire({
       icon: 'error',
@@ -142,7 +167,10 @@ botonVaciar.addEventListener('click', () => {
     confirmButtonText: 'Si, vaciar carrito!'
   }).then((result) => {
     if (result.isConfirmed) {
-      carritoCompra = [];
+      carritoCompra.forEach((prod) => {
+          prod.cantidad = 1 ;
+          carritoCompra = [];
+      })
       renderizarCarrito()
       Swal.fire({
         title: 'Carrito vacio!',
@@ -154,9 +182,10 @@ botonVaciar.addEventListener('click', () => {
       })
     }
   })
-}})
+}}
 
-botonPagar.addEventListener('click', () => {
+//Finalizar Compra
+const finalizarCompra = () => {
   if(carritoCompra.length === 0){
     Swal.fire({
       icon: 'error',
@@ -187,30 +216,29 @@ botonPagar.addEventListener('click', () => {
         color: '#fff',
         confirmButtonColor: '#ffd700'
       })
-      carritoCompra = [];
+        carritoCompra.forEach((prod) => {
+            prod.cantidad = 1 ;
+            carritoCompra = [];
+        })
       renderizarCarrito()
     }
   })
-}})
-
+}}
+//Obtener productos de forma asincronica
 const getProductosApi = async () => {
   const response = await fetch('../JSON/productos.json')
   const data = await response.json()
   stockInstrumentos = data
-  renderizarProductos()
+  renderizarProductos(stockInstrumentos)
 }
 
-const mostrarTotal = () => {
-  const total = 0
-  total = carritoCompra.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
-  alert(`El total de tu compra es de ${total}`)
+//Eventos
+//-------
+botonVaciar.addEventListener('click', vaciarCarrito)
+botonPagar.addEventListener('click', finalizarCompra)
+botonBuscar.addEventListener('click', busquedaProducto)
+botonCarrito.addEventListener('click', renderizarCarrito)
 
-}
-
-//Ejecucion de la funcion
-
+//Ejecucion
+//----------
 getProductosApi()
-
-
-
-

@@ -57,7 +57,7 @@
                     </ul>
                   </div>
                 </div>
-                <!-- <button class="botonCarrito bg-dark"><img id="carrito" src="../img/carrito.png" alt="carrito"></button> -->
+                <button class="botonCarrito bg-dark"><img id="carritoIcono" src="../img/carrito.png" alt="carrito"></button>
               </nav>
         </header>
 
@@ -67,6 +67,7 @@
             <p class="textoTienda lead">¡En este apartado podrás encontrar los instrumentos nuevos y usados que tenemos disponibles para venta, te recomendamos leer la descripción y por cualquier consulta contactarte!</p>
           </div>
           <section class="container">
+            <div id="search"><input id="searchBar" type="text" placeholder="Buscar producto..."><button id="btnSearch">Buscar!</button></div>
             <div id="containerProducto" class="row">
                 <div class="lead col-12">
                     <h3>Instrumentos</h3>
@@ -79,18 +80,17 @@
             <div id="sectionCarrito">
               <!--Renderizado de productos en carrito-->
             </div>
-
-            
-          </section>
-          <Section class="carritoFinal">
-            <hr>
-            <div class="totalCarrito">Total a Pagar: <span id="importePagar"> 0 </span></div>
-            <div class="botonesCarrito">
-              <button id="botonFinalizar" class="botonPagar">Finalizar Compra</button>
-              <button id="botonVaciar" class="botonPagar">Vaciar Carrito</button>
+            <div class="carritoFinal">
+              <hr>
+              <div class="totalCarrito">Total a Pagar: <span id="importePagar"> 0 </span></div>
+              <div class="botonesCarrito">
+                <button id="botonFinalizar" class="botonPagar">Finalizar Compra</button>
+                <button id="botonVaciar" class="botonPagar">Vaciar Carrito</button>
+              </div>
+              <hr>
             </div>
-            <hr>
-          </Section>
+          </section>
+          
           
         </main>
         <footer class="bg-dark p-3 footer">

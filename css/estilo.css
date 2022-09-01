@@ -318,11 +318,27 @@ body {
   flex-direction: row;
   justify-content: space-around;
 }
+
+#search {
+  text-align: right;
+}
+
+#search input {
+  border: 3px, solid, #ffd700;
+}
+
+#search button {
+  background-color: #ffd700;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 5rem;
+}
+
 .botonCarrito {
   border-color: #ffd700;
 }
 
-#carrito {
+#carritoIcono {
   width: 50px;
   height: 50px;
 }
@@ -337,17 +353,51 @@ hr {
 
 .totalCarrito {
   color: #ffd700;
-  text-align: center;
+  font-size: 2rem;
+  text-align: right;
   font-family: "Koulen", cursive;
+  margin-right: 1rem;
 }
 
 #sectionCarrito {
   color: #ffd700;
+  border: solid 2px #ffd700 ;
+  padding: 5px;
+  background-color: black;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+#sectionCarrito hr {
+  color: #ffd700;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.botonEliminar {
+  color: #ffd700;
+  background-color: #232323;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+.botonEliminar:hover {
+  border: solid 2px #ffd700;
+} 
+
+.iconoBorrar {
+  color: #ffd700;
+  background-color: #232323;
+  width: 45px;
+  height: 45px;
 }
 
 .carritoFinal {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .botonesCarrito {
@@ -361,18 +411,26 @@ hr {
   color: #232323;
   text-align: center;
   width: 100%;
+  padding: 5px;
 }
 
 .datosCarrito {
   color: #ffd700;
+  background-color: #232323;
+  margin: 10px;
   text-align: center;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  width: 99%;
   justify-content: space-around;
-  width: 100%;
-  
 }
 
+.imgCarrito {
+  width: 5rem;
+  height: 5rem;
+  border: solid 2px #ffd700;
+}
 
 .datosCarrito p {
   width: 100px;
