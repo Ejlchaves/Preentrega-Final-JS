@@ -67,7 +67,7 @@
             <p class="textoTienda lead">¡En este apartado podrás encontrar los instrumentos nuevos y usados que tenemos disponibles para venta, te recomendamos leer la descripción y por cualquier consulta contactarte!</p>
           </div>
           <section class="container">
-            <div id="search"><input id="searchBar" type="text" placeholder="Buscar producto..."><button id="btnSearch">Buscar!</button></div>
+            <div id="search"><input id="searchBar" type="text" placeholder="Buscar producto por nombre..."><button id="btnSearch">Buscar!</button></div>
             <div id="containerProducto" class="row">
                 <div class="lead col-12">
                     <h3>Instrumentos</h3>
@@ -75,23 +75,27 @@
                     <!--Renderizado de productos-->
             </div>
           </section>
-          <section class="carrito">
-            <h2 class="introTienda">Carrito de Compras(<span id="cantidadInstrumentosCarrito">0</span>)</h2>
-            <div id="sectionCarrito">
-              <!--Renderizado de productos en carrito-->
-            </div>
-            <div class="carritoFinal">
-              <hr>
-              <div class="totalCarrito">Total a Pagar: <span id="importePagar"> 0 </span></div>
-              <div class="botonesCarrito">
-                <button id="botonFinalizar" class="botonPagar">Finalizar Compra</button>
-                <button id="botonVaciar" class="botonPagar">Vaciar Carrito</button>
+          <div class="overlay" id="overlay">
+            <section class="carrito" id="carritoEmergente">
+              <div class="tituloBtnCarrito">
+                <img src="../img/error.png" alt="botonCerrar" id="botonCerrarCarrito">
+                <h2 class="introTienda p-1 m-3">Carrito de Compras(<span id="cantidadInstrumentosCarrito">0</span>)</h2>
               </div>
-              <hr>
-            </div>
+              <div id="sectionCarrito">
+                <!--Renderizado de productos en carrito-->
+              </div>
+              <div class="carritoFinal">
+                <hr>
+                <div class="totalCarrito">Total a Pagar: <span id="importePagar"> 0 </span></div>
+                <div class="botonesCarrito">
+                  <button id="botonFinalizar" class="botonPagar">Finalizar Compra</button>
+                  <button id="botonVaciar" class="botonPagar">Vaciar Carrito</button>
+                </div>
+                <hr>
+              </div>
+          </div>
+          
           </section>
-          
-          
         </main>
         <footer class="bg-dark p-3 footer">
             <h4 class="titulo_redes">Seguinos en las Redes Sociales!</h4>

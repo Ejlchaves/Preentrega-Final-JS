@@ -58,5 +58,35 @@
         "condicion": "Nuevo",
         "img": "../img/tienda7.jpg",
         "detalle": "Tuba profesional con 3 valvulas y detalles en bronce, incluye estuche y correa."
+    },
+    {
+        "id": 7,
+        "tipo": "Trompeta",
+        "marca": "Parquer Ptdc",
+        "cantidad": 1,
+        "precio": 58000,
+        "condicion": "Nuevo",
+        "img": "../img/trompeta.webp",
+        "detalle": "Trompeta Parquer Custom en Si Bemol (Bb) de Metal Color Dorado con Estuche"
+    },
+    {
+        "id": 8,
+        "tipo": "Bongos",
+        "marca": "Stagg Bw-70",
+        "cantidad": 1,
+        "precio": 21000,
+        "condicion": "Nuevo",
+        "img": "../img/bongos.webp",
+        "detalle": "Bongo Madera Stagg Bw-70 7 + 8 Natural Cuero"
+    },
+    {
+        "id": 9,
+        "tipo": "Violin",
+        "marca": "Gadnic STRAD2000 4/4",
+        "cantidad": 1,
+        "precio": 25000,
+        "condicion": "Nuevo",
+        "img": "../img/violin.webp",
+        "detalle": "Violin Gadnic Estudiantes Enchapado + Estuche + Afinador + Resina"
     }
 ]

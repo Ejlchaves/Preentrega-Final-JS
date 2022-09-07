@@ -15,6 +15,7 @@ const formularioEnviado = () => {
       'Nos pondremos en contacto contigo a la brevedad!',
       'success'
     )
+    formularioContacto.value.clear
   } else {
     Swal.fire({
       icon: 'error',

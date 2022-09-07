@@ -20,6 +20,9 @@ const cantidadInstrumentosCarrito = document.querySelector('#cantidadInstrumento
 const importeAPagar = document.querySelector('#importePagar')
 const botonBuscar = document.querySelector('#btnSearch')
 let searchBar = document.querySelector('#searchBar')
+const carritoEmergente = document.querySelector('#overlay')
+const btnCerrarCarrito = document.querySelector('#botonCerrarCarrito')
+
 
 //Storage/JSON
 //------------
@@ -221,9 +224,11 @@ const finalizarCompra = () => {
             carritoCompra = [];
         })
       renderizarCarrito()
+      overlay.style.visibility="hidden"
     }
   })
 }}
+
 //Obtener productos de forma asincronica
 const getProductosApi = async () => {
   const response = await fetch('../JSON/productos.json')
@@ -232,12 +237,27 @@ const getProductosApi = async () => {
   renderizarProductos(stockInstrumentos)
 }
 
+//Abrir Carrito Emergente
+const abrirCarrito = () => {
+  renderizarCarrito();
+  overlay.style.visibility="visible";
+}
+
+//Cerrar Carrito Emergente
+const cerrarCarrito = () => {
+  renderizarCarrito();
+  overlay.style.visibility="hidden"
+}
+
+
+
 //Eventos
 //-------
 botonVaciar.addEventListener('click', vaciarCarrito)
 botonPagar.addEventListener('click', finalizarCompra)
 botonBuscar.addEventListener('click', busquedaProducto)
-botonCarrito.addEventListener('click', renderizarCarrito)
+botonCarrito.addEventListener('click', abrirCarrito)
+btnCerrarCarrito.addEventListener('click', cerrarCarrito)
 
 //Ejecucion
 //----------

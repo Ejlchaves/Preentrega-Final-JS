@@ -324,6 +324,7 @@ body {
 }
 
 #search input {
+  width: 350px;
   border: 3px, solid, #ffd700;
 }
 
@@ -477,6 +478,49 @@ hr {
 .container .row .card:hover {
   box-shadow: 2px 2px 20px #ffd700; }
 
+.overlay{
+  background-color: rgba(0, 0, 0, 0.305);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0%;
+  display: flex;
+  visibility: hidden;
+}
+
+.tituloBtnCarrito{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+#carritoEmergente{
+    background-color:black;
+    border: solid 3px #ffd700;
+    width: 750px;
+    overflow-y: auto;
+    justify-content: center;
+    align-content: center;
+}
+
+#botonCerrarCarrito {
+    width: 40px;
+    height: 40px;
+    text-align: right;
+    right: 10px;
+    top: 15px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}
+
+#botonCerrarCarrito:hover{
+  background-color: #ff0000;
+  box-shadow: 2px 2px 20px #ff0000;
+}
+
 /*Finaliza el Main de Tienda*/
 /*Comienza el Main de Nosotros*/
 .container {
@@ -516,6 +560,10 @@ form h2 {
   font-family: "Koulen", cursive;
   color: #ffd700;
   font-size: 2rem; }
+
+  #celularF {
+    -moz-appearance: "textfield";
+  }
 
 /*finaliza el Main Contacto*/
 /*Comienza Error 404*/
